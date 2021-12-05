@@ -15,7 +15,7 @@ jobs:
           sudo apt-get upgrade -y
           sudo apt-get install pandoc texlive-full -y
       - name: Generating a PDF
-        run: pandoc -d pandoc.yml
+        run: pandoc --defaults pandoc.yml
       - name: Saving Documentation.pdf as an artifact
         uses: actions/upload-artifact@v2
         with:
