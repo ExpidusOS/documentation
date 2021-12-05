@@ -13,7 +13,8 @@ jobs:
         run: |
           sudo apt-get update -y
           sudo apt-get upgrade -y
-          sudo apt-get install pandoc texlive-full -y
+          sudo apt-get install texlive-full -y
+          curl -L "https://github.com/jgm/pandoc/releases/download/2.16.2/pandoc-2.16.2-1-amd64.deb" | sudo dpkg -i /dev/stdin -y
       - name: Generating a PDF
         run: pandoc --defaults pandoc.yml
       - name: Saving Documentation.pdf as an artifact
