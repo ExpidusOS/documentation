@@ -1,0 +1,11 @@
+from: latex
+to: markdown
+
+standalone: true
+input-files:
+  - sections/intro.tex
+
+self-contained: true
+table-of-contents: true
+toc-depth: 2
+number-sections: true
