@@ -16,3 +16,8 @@ jobs:
           markdown: "Documentation.md"
           pdf: "Documentation"
           template: "kate"
+      - name: Saving Documentation.pdf as an artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Documentation PDF
+          path: Documentation.pdf
