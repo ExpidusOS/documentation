@@ -9,15 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Installing pandoc
+      - name: Installing pandoc and TexLive
         run: |
           sudo apt-get update -y
           sudo apt-get upgrade -y
           sudo apt-get install pandoc texlive-full -y
-      - name: Generating a single Markdown file
-        run: cat 0*.md > Documentation.md
       - name: Generating a PDF
-        run: pandoc Documentation.md -o Documentation.pdf --pdf-engine pdflatex
+        run: pandoc -d pandoc.yml
       - name: Saving Documentation.pdf as an artifact
         uses: actions/upload-artifact@v2
         with:

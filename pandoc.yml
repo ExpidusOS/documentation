@@ -1,0 +1,24 @@
+from: markdown
+to: pdf
+
+output-file: Documentation.pdf
+include-in-header: header.tex
+include-before-body: first-page.tex
+input-files:
+  - 00-Intro.md
+
+standalone: true
+self-contained: true
+
+metadata:
+  author:
+    - Tristan Ross
+    - Nathan Richie
+
+pdf-engine: pdflatex
+pdf-engine-opts:
+  - "-shell-escape"
+
+table-of-contents: true
+toc-depth: 4
+number-sections: true
