@@ -13,7 +13,7 @@ jobs:
         run: |
           sudo apt-get update -y
           sudo apt-get upgrade -y
-          sudo apt-get install texlive-latex-base -y
+          sudo apt-get install texlive-latex-base texlive-latex-extra -y
       - name: Generating PDF's
         run: ./scripts/build-pdf.sh all
       - name: Saving PDF's as an artifact
