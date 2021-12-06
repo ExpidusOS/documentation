@@ -1,0 +1,30 @@
+name: Release
+on:
+  push:
+    tags:
+      - "v*.*.*"
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Installing TexLive
+        run: |
+          sudo apt-get update -y
+          sudo apt-get upgrade -y
+          sudo apt-get install texlive-latex-base texlive-latex-extra -y
+          curl -L "https://github.com/jgm/pandoc/releases/download/2.16.2/pandoc-2.16.2-1-amd64.deb" -o pandoc.deb
+          yes | sudo dpkg -i pandoc.deb
+      - name: Generating PDF's
+        run: |
+          ./scripts/build-pdf.sh all
+          cd out && zip ../pdf.zip en.pdf
+      - name: Generating Markdown files
+        run: |
+          ./scripts/build-md.sh all
+          cd out && zip ../markdown.zip en.md
+      - name: Publishing releae
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          files: markdown.zip pdf.zip
