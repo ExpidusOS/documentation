@@ -1,0 +1,5 @@
+to: pdf
+
+include-before-body: first-page.tex
+defaults:
+  - .pandoc.base.yml

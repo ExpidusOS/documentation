@@ -1,3 +1,3 @@
-# ExpidusOS Documentation
+# ExpidusOS Manual
 
-The LaTex source for ExpidusOS's documentation
+The LaTex and Markdown source for ExpidusOS's Manual

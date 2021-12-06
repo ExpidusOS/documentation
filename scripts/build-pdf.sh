@@ -11,14 +11,14 @@ dir=$(readlink -e $(dirname $0)/../)
 
 function build_pdf {
 	local lang=$1
-	if [ ! -e "${dir}/src/${lang}/main.tex" ]; then
+	if [ ! -e "${dir}/src/${lang}/.pandoc.pdf.yml" ]; then
 		echo "$(basename $0): ${lang} is not a compatible language" >&2
 		exit 1
 	fi
 
 	cd "${dir}/src/${lang}"
 	mkdir -p "${dir}/out"
-	pdflatex -output-directory "${dir}/out/" -jobname "${lang}" "main.tex"
+	pandoc -d .pandoc.pdf.yml --output="${dir}/out/${lang}.pdf"
 }
 
 if [ "${lang}" = "all" ]; then

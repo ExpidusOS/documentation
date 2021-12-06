@@ -11,14 +11,14 @@ dir=$(readlink -e $(dirname $0)/../)
 
 function build_md {
 	local lang=$1
-	if [ ! -e "${dir}/src/${lang}/main.tex" ]; then
+	if [ ! -e "${dir}/src/${lang}/.pandoc.md.yml" ]; then
 		echo "$(basename $0): ${lang} is not a compatible language" >&2
 		exit 1
 	fi
 
 	cd "${dir}/src/${lang}"
 	mkdir -p "${dir}/out/"
-	pandoc -d .pandoc.yml --output="${dir}/out/${lang}.md"
+	pandoc -d .pandoc.md.yml --output="${dir}/out/${lang}.md"
 }
 
 if [ "${lang}" = "all" ]; then

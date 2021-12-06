@@ -1,9 +1,8 @@
-from: latex
-to: markdown
+from: markdown
 
 standalone: true
 input-files:
-  - sections/intro.tex
+  - sections/intro.md
 
 self-contained: true
 table-of-contents: true

@@ -1,0 +1,4 @@
+to: markdown
+
+defaults:
+  - .pandoc.base.yml
