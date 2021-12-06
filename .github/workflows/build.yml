@@ -1,4 +1,4 @@
-name: PDF Builder
+name: Build
 on:
   push:
     branches: [ master ]
@@ -9,11 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Installing TexLive
+      - name: Installing dependencies
         run: |
           sudo apt-get update -y
           sudo apt-get upgrade -y
           sudo apt-get install texlive-latex-base texlive-latex-extra -y
+          curl -L "https://github.com/jgm/pandoc/releases/download/2.16.2/pandoc-2.16.2-1-amd64.deb" -o pandoc.deb
+          yes | sudo dpkg -i pandoc.deb
       - name: Generating PDF's
         run: ./scripts/build-pdf.sh all
       - name: Saving PDF's as an artifact
@@ -25,10 +27,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Installing TexLive
+      - name: Installing dependencies
         run: |
           sudo apt-get update -y
           sudo apt-get upgrade -y
+          sudo apt-get install texlive-latex-base texlive-latex-extra -y
           curl -L "https://github.com/jgm/pandoc/releases/download/2.16.2/pandoc-2.16.2-1-amd64.deb" -o pandoc.deb
           yes | sudo dpkg -i pandoc.deb
       - name: Generating Markdown files
