@@ -8,7 +8,7 @@ If there is something that is not covered by the manual, it is suggested to plac
 
 ## Using the Manual
 
-This manual reflects the current version of ExpidusOS, *0.1.0-prealpha Test Release 2*. Specific features and things noted here
+This manual reflects the current version of ExpidusOS, *0.1.1-prealpha*. Specific features and things noted here
 may not apply to previous or later versions. It is heavily suggested to use the manual version which goes with the version you
 are using. Another piece of important information to remember is this is for a pre-alpha version of ExpidusOS. This means components
 in ExpidusOS may not be entirely stable. If you are experiencing any issues with any related components, please report them on the GitHub repository
